@@ -5,32 +5,17 @@ It provides a simple way to run WordPress on a server, keep database data persis
 
 ## Table of Contents
 
+- [Prerequisites](#prerequisites)
+- [Quickstart](#quickstart)
+- [Configuration](#configuration)
+- [Usage](#usage)
 - [Repository Description](#repository-description)
 - [Project Structure](#project-structure)
-- [Requirements](#requirements)
-- [Quickstart](#quickstart)
-- [Usage](#usage)
-- [Configuration](#configuration)
 - [Persistence](#persistence)
 - [Security Notes](#security-notes)
 - [Contributing](#contributing)
 
-## Repository Description
-
-The purpose of this repository is to provide a reproducible WordPress environment for development and deployment with Docker Compose.
-The setup includes:
-
-- a `wordpress` service for the web application
-- a `db` service for MySQL
-- persistent storage for database data
-- persistent storage for WordPress files and uploads
-
-## Project Structure
-
-- `docker-compose.yaml`: Defines the WordPress and MySQL services, networks, restart behavior, and volumes
-- `.env.example`: Example configuration file with the environment variables used by Docker Compose
-
-## Requirements
+## Prerequisites
 
 - Docker
 - Docker Compose
@@ -66,6 +51,22 @@ The setup includes:
    http://<SERVER-IP>:8080
    ```
 
+## Configuration
+
+The project uses environment variables defined in `.env`.
+The following variables are available in `.env.example`:
+
+- `WORDPRESS_TAG`: WordPress image tag
+- `MYSQL_TAG`: MySQL image tag
+- `WORDPRESS_CONTAINER_NAME`: Container name for the WordPress service
+- `DB_CONTAINER_NAME`: Container name for the database service
+- `WORDPRESS_PORT`: Published host port for WordPress
+- `WORDPRESS_DB_HOST`: Database host and port used by WordPress
+- `WORDPRESS_DB_NAME`: MySQL database name
+- `WORDPRESS_DB_USER`: MySQL user for WordPress
+- `WORDPRESS_DB_PASSWORD`: MySQL password for the WordPress user
+- `MYSQL_ROOT_PASSWORD`: MySQL root password
+
 ## Usage
 
 The project is managed with Docker Compose.
@@ -96,21 +97,20 @@ docker compose config
 
 After the containers are running, complete the WordPress installation in the browser by creating the admin account and initial site configuration.
 
-## Configuration
+## Repository Description
 
-The project uses environment variables defined in `.env`.
-The following variables are available in `.env.example`:
+The purpose of this repository is to provide a reproducible WordPress environment for development and deployment with Docker Compose.
+The setup includes:
 
-- `WORDPRESS_TAG`: WordPress image tag
-- `MYSQL_TAG`: MySQL image tag
-- `WORDPRESS_CONTAINER_NAME`: Container name for the WordPress service
-- `DB_CONTAINER_NAME`: Container name for the database service
-- `WORDPRESS_PORT`: Published host port for WordPress
-- `WORDPRESS_DB_HOST`: Database host and port used by WordPress
-- `WORDPRESS_DB_NAME`: MySQL database name
-- `WORDPRESS_DB_USER`: MySQL user for WordPress
-- `WORDPRESS_DB_PASSWORD`: MySQL password for the WordPress user
-- `MYSQL_ROOT_PASSWORD`: MySQL root password
+- a `wordpress` service for the web application
+- a `db` service for MySQL
+- persistent storage for database data
+- persistent storage for WordPress files and uploads
+
+## Project Structure
+
+- `docker-compose.yaml`: Defines the WordPress and MySQL services, networks, restart behavior, and volumes
+- `.env.example`: Example configuration file with the environment variables used by Docker Compose
 
 ## Persistence
 
