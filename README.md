@@ -51,15 +51,16 @@ The setup includes:
    cp .env.example .env
    ```
 
-3. Adjust the values in `.env` if needed, especially passwords.
+> [!IMPORTANT]
+> Adjust the values in `.env` before starting the project, especially the passwords.
 
-4. Start the project:
+3. Start the project:
 
    ```bash
    docker compose up -d
    ```
 
-5. Open WordPress in the browser:
+4. Open WordPress in the browser:
 
    ```text
    http://<SERVER-IP>:8080
