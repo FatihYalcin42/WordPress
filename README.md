@@ -41,7 +41,7 @@ The setup includes:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/FatihYalcin42/WordPress.git
+   git clone git@github.com:FatihYalcin42/WordPress.git
    cd WordPress
    ```
 
